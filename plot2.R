@@ -5,7 +5,11 @@ closeAllConnections()
 
 ## run plot2() to generate png file replicating plot2
 plot2 <- function(){
+      win.graph(width = 5, height = 5)
       par(cex = .75) ## reduce font size by 25%
       plot(as.ts(dat$Global_active_power), xlab = "", ylab = "Global Active Power (kilowatts)", xaxt = "n") ##create plot, don't draw x-axis
       axis(1, at=axTicks(1, axp=c(0, 2900 , 2)), labels = c("Thu", "Fri", "Sat")) ##draw x-axis with 3 tick marks, label them
+      
+      dev.copy(png, "plot2.png")
+      dev.off()
 }

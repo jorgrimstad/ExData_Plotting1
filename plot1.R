@@ -5,6 +5,9 @@ closeAllConnections()
 
 ## run plot1() to generate png file replicating plot1
 plot1 <- function(){
+      win.graph(width = 5, height = 5)
       par(cex = 0.75)
       hist(dat$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
+      dev.copy(png, "plot1.png")
+      dev.off()
 }
